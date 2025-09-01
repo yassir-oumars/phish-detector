@@ -7,3 +7,5 @@ fastapi
 uvicorn
 joblib
 pydantic
+tldextract
+

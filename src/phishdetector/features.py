@@ -25,7 +25,7 @@ def url_lexical_features(url: str) -> dict:
     feats["num_dots"] = u.count(".")
     feats["num_digits"] = sum(ch.isdigit() for ch in u)
     feats["num_hyphens"] = u.count("-")
-    feats["num_params"] = u.count("&")
+    feats["num_params"] = 0 if not parsed.query else 1 + parsed.query.count("&")
     feats["has_ip"] = int(bool(re.fullmatch(r"https?://\d{1,3}(?:\.\d{1,3}){3}.*", u)))
     feats["entropy"] = shannon_entropy(u.lower())
     feats["tld_len"] = len(ext.suffix or "")
