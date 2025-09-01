@@ -1,14 +1,14 @@
 import os, json, joblib, pandas as pd, numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import classification_report, roc_auc_score, average_precision_score
-from sklearn.pipeline import Pipeline
+from imblearn.pipeline import Pipeline
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
 from imblearn.over_sampling import RandomOverSampler
 import mlflow, mlflow.sklearn
 
-DATA_PATH = os.environ.get("DATA_PATH", "../../data/phishing_data.csv")
+DATA_PATH = os.environ.get("DATA_PATH", "data/phishing_data.csv")
 OUT_DIR   = os.environ.get("OUT_DIR", "model_artifacts")
 os.makedirs(OUT_DIR, exist_ok=True)
 
